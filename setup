@@ -30,23 +30,17 @@ SKILLS=(
   "browse"
 )
 
-installed=0
-skipped=0
-
 for skill in "${SKILLS[@]}"; do
   target="$SKILLS_DIR/ck-$skill"
   source="$SCRIPT_DIR/$skill"
 
-  if [ -L "$target" ] || [ -d "$target" ]; then
-    skipped=$((skipped + 1))
-  else
-    ln -s "$source" "$target"
-    installed=$((installed + 1))
-  fi
+  # Remove old symlink or dir, then copy fresh
+  rm -rf "$target"
+  mkdir -p "$target"
+  cp "$source/SKILL.md" "$target/SKILL.md"
 done
 
-echo "        $installed installed, $skipped already existed"
-echo "        → ~/.claude/skills/ck-*"
+echo "        ✓ ${#SKILLS[@]} skills → ~/.claude/skills/ck-*"
 echo ""
 
 # ── Step 2: Python + Playwright ─────────────────────

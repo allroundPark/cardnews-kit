@@ -38,7 +38,7 @@ cd cardnews-kit
 /ck-story
 ```
 
-The `setup` script installs 11 skills as `/ck-*` commands into `~/.claude/skills/` and sets up Playwright for browser automation.
+The `setup` script copies 11 skills to `~/.claude/skills/ck-*/` and installs Playwright. You can delete the cloned repo after setup — skills are self-contained. To update, `git pull && ./setup` again.
 
 ---
 
