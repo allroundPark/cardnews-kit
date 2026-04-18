@@ -16,18 +16,18 @@ keep the pipeline.
 Set up your creative identity. This happens once when you start a new content project.
 
 ```
-/onboard
+/ck-onboard
   ├── ETHOS presentation ("here's what this kit believes")
   ├── Philosophy questions → PHILOSOPHY.md
-  ├── /benchmark → BENCHMARK.md
+  ├── /ck-benchmark → BENCHMARK.md
   │     └── Reference account analysis
   │     └── Story arc/rhythm extraction
   │     └── User confirms preferred flow
-  ├── /design-system → DESIGN.md
+  ├── /ck-design-system → DESIGN.md
   │     └── Reference → auto-extract tokens
   │     └── Shotgun: 2-3 variations in browser
   │     └── User picks, optionally customizes
-  ├── /voice → EDITORIAL.md
+  ├── /ck-voice → EDITORIAL.md
   │     └── Tone, forbidden terms, arc template
   └── CLAUDE.md auto-synthesized
 ```
@@ -40,7 +40,7 @@ production skill reads.
 Create content. This is the repeatable cycle for every post.
 
 ```
-/story → /factcheck → /illustrate → /lint → /render → /publish
+/ck-story → /ck-factcheck → /ck-illustrate → /ck-lint → /ck-render → /ck-publish
 ```
 
 Each skill reads your onboarding documents (DESIGN.md, EDITORIAL.md, etc.)
@@ -58,19 +58,19 @@ and applies your established rules automatically.
 - Simple posts with clear topics
 - Batch production
 
-Example: `/story --quick "Cisco 20-year chart — the price of being #1"`
+Example: `/ck-story --quick "Cisco 20-year chart — the price of being #1"`
 
 ## Key Design Principles
 
 ### Extract, Don't Interrogate
 
 When a user benchmarks an account, they already like that account's visual style
-and content rhythm. `/design-system` extracts tokens from references first,
+and content rhythm. `/ck-design-system` extracts tokens from references first,
 then asks if the user wants to modify — instead of starting with blank-slate questions.
 
 ### Quality Gate is Non-Negotiable
 
-`/lint` runs automatically before every render. There is no `--skip-lint` flag.
+`/ck-lint` runs automatically before every render. There is no `--skip-lint` flag.
 This exists because real production revealed:
 - Color hex drift across posts (4 different "cream" values in one project)
 - Font fallback failures (Korean text rendering as boxes)
@@ -78,7 +78,7 @@ This exists because real production revealed:
 
 ### Source Grading, Not Source Trusting
 
-`/factcheck` uses a 4-tier system because AI research agents tend to
+`/ck-factcheck` uses a 4-tier system because AI research agents tend to
 self-promote secondary sources as primary:
 - ✅ Direct primary source accessed
 - ✅* Secondary consensus (multiple reliable sources agree, but primary not accessed)
@@ -90,7 +90,7 @@ No — trace to the actual book page, video timestamp, or official document.
 
 ### Your Taste, Not AI's Taste
 
-`/illustrate` generates candidates. You pick. The skill never auto-selects
+`/ck-illustrate` generates candidates. You pick. The skill never auto-selects
 the "best" image — because "best" is a taste judgment that belongs to you.
 
 Style locking (reference image injection) exists precisely so the AI reproduces
@@ -102,10 +102,10 @@ Multiple skills use Playwright's browser for visual review:
 
 | Skill | Browser use |
 |---|---|
-| `/benchmark` | Browse reference account feeds |
-| `/design-system` | Shotgun comparison of design variations |
-| `/illustrate` | Side-by-side image candidate preview |
-| `/render` | Compare.html grid of all slides |
+| `/ck-benchmark` | Browse reference account feeds |
+| `/ck-design-system` | Shotgun comparison of design variations |
+| `/ck-illustrate` | Side-by-side image candidate preview |
+| `/ck-render` | Compare.html grid of all slides |
 
 This is why Playwright is a core dependency, not an adapter.
 

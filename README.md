@@ -1,68 +1,106 @@
 # cardnews-kit
 
-**Build editorial carousels with AI — from benchmarking to publish.**
+> Build editorial carousels with AI — from benchmarking to publish.
 
-Proven with a real Instagram account. Finance, design, food, architecture, travel — change the topic, keep the pipeline.
+A Claude Code skill pack that turns a proven editorial carousel workflow into
+reusable slash commands. Extracted from a real Instagram account with 13 published posts.
+
+**Finance, design, food, architecture, travel — change the topic, keep the pipeline.**
 
 ---
 
 ## Made with cardnews-kit
 
-> _Your link here_ — [instagram.com/your_account](https://instagram.com/your_account)
+<p align="center">
+  <img src="docs/showcase/hook_amazon.png" width="250" alt="Amazon -94% survival story">
+  <img src="docs/showcase/hook_templeton.png" width="250" alt="Templeton 1939 story">
+  <img src="docs/showcase/hook_miller.png" width="250" alt="Bill Miller hubris story">
+</p>
+
+<p align="center"><em>Investment philosophy editorial — 13-post carousel series</em></p>
 
 ---
 
 ## Quick Start
 
 ```bash
-# 1. Clone the kit
-git clone https://github.com/your-org/cardnews-kit.git
-cd cardnews-kit
+# 1. Clone the kit into your project
+git clone https://github.com/allroundPark/cardnews-kit.git .cardnews-kit
 
-# 2. Install dependencies
-./setup
+# 2. Install Playwright (core dependency)
+./.cardnews-kit/setup
 
-# 3. Onboard — define your account identity
-/onboard
+# 3. Start onboarding in Claude Code
+/ck-onboard
 
 # 4. Create your first carousel
-/story
+/ck-story
 ```
 
 ---
 
 ## Skills
 
-### Phase 1 — Onboard
+### Phase 1 — Onboard (once)
 
-Run these once to set up your project's creative identity.
+Set up your creative identity. Run once when starting a new content project.
 
-| Skill | Description |
+| Command | What it does |
 |---|---|
-| `/onboard` | Interactive setup — mission, audience, topic, output directory |
-| `/benchmark` | Analyze 5-10 reference accounts, extract patterns that work |
-| `/design-system` | Define colors, typography, layout grid, and visual tokens |
-| `/voice` | Set editorial tone, forbidden terms, and copy guidelines |
+| `/ck-onboard` | Full guided setup — philosophy, benchmark, design, voice |
+| `/ck-benchmark` | Analyze reference accounts, extract story arc rhythms |
+| `/ck-design-system` | Auto-generate design tokens from references (shotgun comparison) |
+| `/ck-voice` | Define editorial voice, forbidden terms, story arc patterns |
 
-### Phase 2 — Produce
+**Onboarding produces:** `PHILOSOPHY.md` · `BENCHMARK.md` · `DESIGN.md` · `EDITORIAL.md` · `CLAUDE.md`
 
-Run this loop for every post. All production skills support `--quick` mode for faster iteration.
+### Phase 2 — Produce (each post)
 
-| Skill | Description |
+Repeatable cycle for every post. All skills support `--quick` mode.
+
+| Command | What it does |
 |---|---|
-| `/story` | Research topic, write narrative arc, structure slides |
-| `/factcheck` | Verify numbers, dates, and claims against primary sources |
-| `/illustrate` | Generate AI illustrations matching your design system |
-| `/lint` | Check slides against design system and editorial voice |
-| `/render` | Render HTML templates to 1080x1350 PNGs via Playwright |
-| `/publish` | Bundle slides + caption + metadata for upload |
-| `/review` | Pre-publish review — full editorial and visual check |
+| `/ck-story` | Research angles, write content spec |
+| `/ck-factcheck` | Verify data with source grading (✅ · ✅* · ⚠️ · ❌) |
+| `/ck-illustrate` | AI image generation with style locking |
+| `/ck-lint` | Quality gate — color, font, layout, editorial checks |
+| `/ck-render` | Lint → HTML → PNG via Playwright, compare in browser |
+| `/ck-publish` | Caption, README, final publish bundle |
+
+### Infrastructure
+
+| Module | What it does |
+|---|---|
+| `browse` | Shared Playwright browser for visual preview and comparison |
+
+---
+
+## How It Works
+
+```
+Phase 1: Onboard (once)
+/ck-onboard → /ck-benchmark → /ck-design-system → /ck-voice
+    │                │                 │                 │
+    │           BENCHMARK.md       DESIGN.md      EDITORIAL.md
+    │
+    └── PHILOSOPHY.md + CLAUDE.md (auto-synthesized)
+
+
+Phase 2: Produce (each post)
+/ck-story → /ck-factcheck → /ck-illustrate → /ck-lint → /ck-render → /ck-publish
+   │          │            │           │        │          │
+  spec    verified     images      pass/fail   PNGs     bundle
+```
 
 ---
 
 ## Philosophy
 
-cardnews-kit is built on three beliefs: your taste is the product, content is the root, and making closes the gap.
+cardnews-kit is built on three beliefs:
+
+1. **Your taste is the product.** Benchmarking is the start, but your judgment makes it yours.
+2. **Content is the root.** Whatever you build next grows from content.
+3. **Making closes the gap.** Each piece you ship narrows the distance between you and your audience.
 
 Read the full philosophy in [ETHOS.md](ETHOS.md).
 
@@ -70,7 +108,24 @@ Read the full philosophy in [ETHOS.md](ETHOS.md).
 
 ## Tool-Agnostic
 
-The kit is process, not stack. Image generation, data APIs, and publishing targets are handled through adapters in `adapters/reference/`. Swap Gemini for DALL-E, FMP for Yahoo Finance, or Instagram for Threads — the pipeline stays the same.
+Skills teach process, not tools. The core dependency is **Playwright** (for benchmarking
+and rendering). Everything else is swappable:
+
+| Capability | Reference adapter | Alternatives |
+|---|---|---|
+| Image generation | Gemini 3 Pro Image | DALL-E, Midjourney, Flux |
+| Data verification | FMP API | Yahoo Finance, manual research |
+| Publishing | Instagram carousel | Threads, LinkedIn, blog |
+
+See [`adapters/reference/`](adapters/reference/) for working examples.
+
+---
+
+## Docs
+
+- [ETHOS.md](ETHOS.md) — Kit philosophy
+- [docs/skills.md](docs/skills.md) — Full skill descriptions and workflow details
+- [CLAUDE.md](CLAUDE.md) — Claude Code integration guide
 
 ---
 

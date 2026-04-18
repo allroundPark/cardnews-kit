@@ -39,25 +39,25 @@ The kit operates in two phases:
 Set up your creative identity once. These skills run at the start of a new project.
 
 ```
-/onboard → /benchmark → /design-system → /voice
+/ck-onboard → /ck-benchmark → /ck-design-system → /ck-voice
 ```
 
-- `/onboard` — Define your account's mission, audience, and topic.
-- `/benchmark` — Study 5-10 accounts you admire. Extract what works.
-- `/design-system` — Lock in colors, typography, layout grid, and visual identity.
-- `/voice` — Define your editorial voice, tone, and forbidden terms.
+- `/ck-onboard` — Define your account's mission, audience, and topic.
+- `/ck-benchmark` — Study 5-10 accounts you admire. Extract what works.
+- `/ck-design-system` — Lock in colors, typography, layout grid, and visual identity.
+- `/ck-voice` — Define your editorial voice, tone, and forbidden terms.
 
 ### Phase 2 — Produce
 
 Run this loop for every post.
 
 ```
-/story → /factcheck → /illustrate → /lint → /render → /publish
+/ck-story → /ck-factcheck → /ck-illustrate → /ck-lint → /ck-render → /ck-publish
 ```
 
-- `/story` — Research and write the narrative arc for one carousel.
-- `/factcheck` — Verify every number, date, and claim against primary sources.
-- `/illustrate` — Generate AI illustrations matching your design system.
-- `/lint` — Check slides against your design system and editorial voice.
-- `/render` — Render HTML templates to publication-ready PNGs.
-- `/publish` — Bundle slides, caption, and metadata for upload.
+- `/ck-story` — Research and write the narrative arc for one carousel.
+- `/ck-factcheck` — Verify every number, date, and claim against primary sources.
+- `/ck-illustrate` — Generate AI illustrations matching your design system.
+- `/ck-lint` — Check slides against your design system and editorial voice.
+- `/ck-render` — Render HTML templates to publication-ready PNGs.
+- `/ck-publish` — Bundle slides, caption, and metadata for upload.

@@ -1,5 +1,5 @@
 ---
-name: story
+name: ck-story
 description: Research angles and write content specs for carousel posts. Guided mode asks step-by-step; --quick generates a draft from a topic description.
 ---
 
@@ -9,7 +9,7 @@ Research angles and write content specs for carousel posts.
 
 ## Prerequisite
 
-If `PHILOSOPHY.md` does not exist in the project root, suggest running `/onboard` first. The philosophy file establishes the account's editorial identity, which is required to generate on-brand story specs.
+If `PHILOSOPHY.md` does not exist in the project root, suggest running `/ck-onboard` first. The philosophy file establishes the account's editorial identity, which is required to generate on-brand story specs.
 
 ## Modes
 
@@ -27,7 +27,7 @@ Invoked with `/story` (no arguments).
    - Body copy direction (not final copy — direction for what to communicate)
    - Visual direction (illustration subject, mood, composition notes)
    - Data/claims with source attribution
-6. **Unverified claim flagging** — Any numeric claim, date, percentage, or quote that cannot be immediately verified gets flagged with `⚠️ UNVERIFIED` for `/factcheck` to resolve later.
+6. **Unverified claim flagging** — Any numeric claim, date, percentage, or quote that cannot be immediately verified gets flagged with `⚠️ UNVERIFIED` for `/ck-factcheck` to resolve later.
 
 ### Quick mode
 

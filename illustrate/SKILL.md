@@ -1,5 +1,5 @@
 ---
-name: illustrate
+name: ck-illustrate
 description: Generate AI illustrations with style locking. Supports reference image injection, prompt iteration, and PURE STYLE TRANSFER for portraits. Preview candidates in browser.
 ---
 

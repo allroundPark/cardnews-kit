@@ -1,5 +1,5 @@
 ---
-name: factcheck
+name: ck-factcheck
 description: Verify numeric claims in story specs against primary sources. Grades each claim as ✅ (verified), ✅* (secondary consensus), ⚠️ (slightly off), or ❌ (wrong).
 ---
 

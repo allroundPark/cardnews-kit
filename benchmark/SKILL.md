@@ -1,5 +1,5 @@
 ---
-name: benchmark
+name: ck-benchmark
 description: Analyze reference accounts and extract visual patterns, content strategies, and story arc rhythms. Produces BENCHMARK.md.
 ---
 

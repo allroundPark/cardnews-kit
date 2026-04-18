@@ -8,7 +8,7 @@ cardnews-kit is a Claude Code skill pack for building editorial Instagram carous
 
 ## Critical: First-Time Setup
 
-If `PHILOSOPHY.md` does not exist in the project root, the user has not onboarded yet. Suggest running `/onboard` before any production skills. Onboarding is required — without it, skills like `/lint` and `/illustrate` have no design system or voice to reference.
+If `PHILOSOPHY.md` does not exist in the project root, the user has not onboarded yet. Suggest running `/ck-onboard` before any production skills. Onboarding is required — without it, skills like `/ck-lint` and `/ck-illustrate` have no design system or voice to reference.
 
 ## Available Skills
 
@@ -16,21 +16,21 @@ If `PHILOSOPHY.md` does not exist in the project root, the user has not onboarde
 
 | Skill | What it does |
 |---|---|
-| `/onboard` | Interactive project setup: mission, audience, topic, directory structure |
-| `/benchmark` | Analyze reference accounts, extract visual and editorial patterns |
-| `/design-system` | Define colors, typography, layout grid, visual tokens → `DESIGN.md` |
-| `/voice` | Define editorial tone, forbidden terms, copy rules → `EDITORIAL.md` |
+| `/ck-onboard` | Interactive project setup: mission, audience, topic, directory structure |
+| `/ck-benchmark` | Analyze reference accounts, extract visual and editorial patterns |
+| `/ck-design-system` | Define colors, typography, layout grid, visual tokens → `DESIGN.md` |
+| `/ck-voice` | Define editorial tone, forbidden terms, copy rules → `EDITORIAL.md` |
 
 ### Phase 2 — Produce (per post)
 
 | Skill | What it does |
 |---|---|
-| `/story` | Research and structure a carousel narrative arc |
-| `/factcheck` | Verify every number and claim against primary sources |
-| `/illustrate` | Generate AI illustrations matching the design system |
-| `/lint` | Validate slides against design system + editorial voice |
-| `/render` | Render HTML → 1080x1350 PNG via Playwright |
-| `/publish` | Bundle slides, caption, metadata for upload |
+| `/ck-story` | Research and structure a carousel narrative arc |
+| `/ck-factcheck` | Verify every number and claim against primary sources |
+| `/ck-illustrate` | Generate AI illustrations matching the design system |
+| `/ck-lint` | Validate slides against design system + editorial voice |
+| `/ck-render` | Render HTML → 1080x1350 PNG via Playwright |
+| `/ck-publish` | Bundle slides, caption, metadata for upload |
 | `/review` | Pre-publish editorial and visual check |
 
 All production skills support `--quick` mode for faster iteration.

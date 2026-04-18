@@ -1,5 +1,5 @@
 ---
-name: browse
+name: ck-browse
 description: Browser infrastructure for visual preview. Opens HTML in Playwright for comparison, review, and analysis. Used by design-system (shotgun), illustrate (preview), render (compare), and benchmark (feed analysis).
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: publish
+name: ck-publish
 description: Create the final publish bundle — Instagram caption, README with upload checklist, and organized file structure.
 ---
 

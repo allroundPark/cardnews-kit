@@ -1,5 +1,5 @@
 ---
-name: design-system
+name: ck-design-system
 description: Generate design tokens from reference accounts or images. Auto-extracts colors, fonts, layout — then lets you customize. Produces DESIGN.md.
 ---
 

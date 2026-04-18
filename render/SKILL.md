@@ -1,5 +1,5 @@
 ---
-name: render
+name: ck-render
 description: Render HTML templates to PNG via Playwright. Auto-runs /lint first. Generates compare.html for browser review of all slides.
 ---
 
@@ -9,7 +9,7 @@ Render HTML templates to PNG via Playwright.
 
 ## Flow
 
-1. **Lint gate** — Auto-call `/lint`. Must pass with zero failures. No override available.
+1. **Lint gate** — Auto-call `/ck-lint`. Must pass with zero failures. No override available.
 2. **Locate templates** — Find all HTML templates for the current post (ordered by slide number).
 3. **Launch Playwright** — Open headless Chromium.
 4. **Render each slide**:

@@ -1,5 +1,5 @@
 ---
-name: lint
+name: ck-lint
 description: Quality gate for carousel templates. Checks color tokens, font usage, layout consistency, editorial rules, and Y-grid alignment. Called automatically by /render.
 ---
 
@@ -9,8 +9,8 @@ Quality gate for carousel templates.
 
 ## Invocation
 
-- `/lint` — standalone check
-- Auto-called by `/render` before any rendering begins
+- `/ck-lint` — standalone check
+- Auto-called by `/ck-render` before any rendering begins
 
 ## Checks
 
@@ -44,9 +44,9 @@ FAIL  templates/05_twist.html:18  [Editorial]
 PASS  templates/01_hook.html  [All checks passed]
 ```
 
-## Integration with /render
+## Integration with /ck-render
 
-`/render` calls `/lint` as its first step. If lint fails, rendering is blocked. There is no `--skip-lint` flag — the quality gate is non-negotiable.
+`/ck-render` calls `/ck-lint` as its first step. If lint fails, rendering is blocked. There is no `--skip-lint` flag — the quality gate is non-negotiable.
 
 ## Implementation
 
