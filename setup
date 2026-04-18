@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+
+echo "cardnews-kit setup"
+echo "==================="
+echo ""
+
+# Check for Python
+if ! command -v python3 &> /dev/null; then
+    echo "Error: python3 is required but not found."
+    echo "Install Python 3.10+ and try again."
+    exit 1
+fi
+
+# Check if Playwright is installed
+if python3 -c "import playwright" 2>/dev/null; then
+    echo "[ok] Playwright is already installed."
+else
+    echo "[..] Installing Playwright..."
+    pip3 install playwright
+    echo "[ok] Playwright installed."
+fi
+
+# Check if Chromium browser is installed for Playwright
+if python3 -c "from playwright.sync_api import sync_playwright; p = sync_playwright().start(); p.chromium.executable_path; p.stop()" 2>/dev/null; then
+    echo "[ok] Playwright Chromium is already installed."
+else
+    echo "[..] Installing Playwright Chromium browser..."
+    python3 -m playwright install chromium
+    echo "[ok] Playwright Chromium installed."
+fi
+
+echo ""
+echo "Setup complete."
+echo ""
+echo "Next step: run /onboard to set up your project identity."
