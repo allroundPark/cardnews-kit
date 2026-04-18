@@ -24,11 +24,12 @@ reusable slash commands. Extracted from a real Instagram account with 13 publish
 ## Quick Start
 
 ```bash
-# 1. Clone the kit into your project
-git clone https://github.com/allroundPark/cardnews-kit.git .cardnews-kit
+# 1. Clone the kit
+git clone https://github.com/allroundPark/cardnews-kit.git
+cd cardnews-kit
 
-# 2. Install Playwright (core dependency)
-./.cardnews-kit/setup
+# 2. Run setup (installs skills + Playwright — 30 seconds)
+./setup
 
 # 3. Start onboarding in Claude Code
 /ck-onboard
@@ -36,6 +37,8 @@ git clone https://github.com/allroundPark/cardnews-kit.git .cardnews-kit
 # 4. Create your first carousel
 /ck-story
 ```
+
+The `setup` script installs 11 skills as `/ck-*` commands into `~/.claude/skills/` and sets up Playwright for browser automation.
 
 ---
 

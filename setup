@@ -1,36 +1,98 @@
 #!/bin/bash
 set -e
 
-echo "cardnews-kit setup"
-echo "==================="
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$HOME/.claude/skills"
+
+echo ""
+echo "  cardnews-kit"
+echo "  ─────────────────────────────"
+echo "  Build editorial carousels with AI"
 echo ""
 
-# Check for Python
+# ── Step 1: Install skills ──────────────────────────
+
+echo "  [1/3] Installing skills..."
+
+mkdir -p "$SKILLS_DIR"
+
+SKILLS=(
+  "onboard"
+  "benchmark"
+  "design-system"
+  "voice"
+  "story"
+  "factcheck"
+  "illustrate"
+  "lint"
+  "render"
+  "publish"
+  "browse"
+)
+
+installed=0
+skipped=0
+
+for skill in "${SKILLS[@]}"; do
+  target="$SKILLS_DIR/ck-$skill"
+  source="$SCRIPT_DIR/$skill"
+
+  if [ -L "$target" ] || [ -d "$target" ]; then
+    skipped=$((skipped + 1))
+  else
+    ln -s "$source" "$target"
+    installed=$((installed + 1))
+  fi
+done
+
+echo "        $installed installed, $skipped already existed"
+echo "        → ~/.claude/skills/ck-*"
+echo ""
+
+# ── Step 2: Python + Playwright ─────────────────────
+
+echo "  [2/3] Checking Python..."
+
 if ! command -v python3 &> /dev/null; then
-    echo "Error: python3 is required but not found."
-    echo "Install Python 3.10+ and try again."
+    echo "        ✗ python3 not found. Install Python 3.10+ and re-run."
     exit 1
 fi
+echo "        ✓ python3 found"
 
-# Check if Playwright is installed
+echo ""
+echo "  [3/3] Checking Playwright..."
+
 if python3 -c "import playwright" 2>/dev/null; then
-    echo "[ok] Playwright is already installed."
+    echo "        ✓ Playwright installed"
 else
-    echo "[..] Installing Playwright..."
+    echo "        Installing Playwright..."
     pip3 install playwright
-    echo "[ok] Playwright installed."
+    echo "        ✓ Playwright installed"
 fi
 
-# Check if Chromium browser is installed for Playwright
-if python3 -c "from playwright.sync_api import sync_playwright; p = sync_playwright().start(); p.chromium.executable_path; p.stop()" 2>/dev/null; then
-    echo "[ok] Playwright Chromium is already installed."
+if python3 -c "
+from playwright.sync_api import sync_playwright
+p = sync_playwright().start()
+p.chromium.executable_path
+p.stop()
+" 2>/dev/null; then
+    echo "        ✓ Chromium ready"
 else
-    echo "[..] Installing Playwright Chromium browser..."
+    echo "        Installing Chromium..."
     python3 -m playwright install chromium
-    echo "[ok] Playwright Chromium installed."
+    echo "        ✓ Chromium ready"
 fi
 
+# ── Done ────────────────────────────────────────────
+
 echo ""
-echo "Setup complete."
+echo "  ─────────────────────────────"
+echo "  ✓ Setup complete!"
 echo ""
-echo "Next step: run /onboard to set up your project identity."
+echo "  Skills installed:"
+for skill in "${SKILLS[@]}"; do
+  echo "    /ck-$skill"
+done
+echo ""
+echo "  Next: run /ck-onboard in Claude Code"
+echo ""
